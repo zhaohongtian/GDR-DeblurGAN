@@ -1,7 +1,8 @@
-# DeblurGAN
-[arXiv Paper Version](https://arxiv.org/pdf/1711.07064.pdf)
+# GDR-DeblurGAN
+[Paper Version]([https://arxiv.org/pdf/1711.07064.pdf](https://www.sciencedirect.com/science/article/pii/S1047320320301565))
 
-Pytorch implementation of the paper DeblurGAN: Blind Motion Deblurring Using Conditional Adversarial Networks.
+Pytorch implementation of the paper Gradient-based conditional generative adversarial network for non-uniform
+blind deblurring via DenseResNet.
 
 Our network takes blurry image as an input and procude the corresponding sharp estimate, as in the example:
 <img src="images/animation3.gif" width="400px"/> <img src="images/animation4.gif" width="400px"/>
@@ -15,7 +16,7 @@ The model we use is Conditional Wasserstein GAN with Gradient Penalty + Perceptu
 - NVIDIA GPU + CUDA CuDNN (CPU untested, feedback appreciated)
 - Pytorch
 
-Download weights from [Google Drive](https://drive.google.com/file/d/1liKzdjMRHZ-i5MWhC72EL7UZLNPj5_8Y/view?usp=sharing) . Note that during the inference you need to keep only Generator weights.
+Note that during the inference you need to keep only Generator weights.
 
 Put the weights into 
 ```bash
@@ -25,8 +26,7 @@ To test a model put your blurry images into a folder and run:
 ```bash
 python test.py --dataroot /.path_to_your_data --model test --dataset_mode single --learn_residual
 ```
-## Data
-Download dataset for Object Detection benchmark from [Google Drive](https://drive.google.com/file/d/1CPMBmRj-jBDO2ax4CxkBs9iczIFrs8VA/view?usp=sharing)
+
 
 ## Train
 
@@ -40,12 +40,6 @@ And then the following command to train the model
 python train.py --dataroot /.path_to_your_data --learn_residual --resize_or_crop crop --fineSize CROP_SIZE (we used 256)
 ```
 
-## Other Implementations
-
-[Keras Blog](https://blog.sicara.com/keras-generative-adversarial-networks-image-deblurring-45e3ab6977b5)
-
-[Keras Repository](https://github.com/RaphaelMeudec/deblur-gan)
-
 
 
 ## Citation
@@ -53,16 +47,19 @@ python train.py --dataroot /.path_to_your_data --learn_residual --resize_or_crop
 If you find our code helpful in your research or work please cite our paper.
 
 ```
-@article{DeblurGAN,
-  title = {DeblurGAN: Blind Motion Deblurring Using Conditional Adversarial Networks},
-  author = {Kupyn, Orest and Budzan, Volodymyr and Mykhailych, Mykola and Mishkin, Dmytro and Matas, Jiri},
-  journal = {ArXiv e-prints},
-  eprint = {1711.07064},
-  year = 2017
+@article{GDR-DeblurGAN,
+  title = {Gradient-based conditional generative adversarial network for non-uniform blind deblurring via DenseResNet},
+  author = {Hongtian Zhao and Di Wu and Hang Su and Shibao Zheng and Jie Chen},
+  journal = {Journal of Visual Communication and Image Representation},
+  volume = {74},
+  pages = {102921},
+  year = {2021},
+  issn = {1047-3203}
 }
 ```
 
 ## Acknowledgments
 Code borrows heavily from [pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). The images were taken from GoPRO test dataset - [DeepDeblur](https://github.com/SeungjunNah/DeepDeblur_release)
+[DeblurGAN](https://github.com/KupynOrest/DeblurGAN)
 
 
